@@ -1,0 +1,18 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tasks</title>
+        <link href="{% static 'tasks/css/styles.css' %}" rel="stylesheet">
+    </head>
+    <body>
+        <h1>Tasks</h1>
+        <ul>
+            {% for task in tasks %}
+            <li {% if task.is_done %}class="done"{% endif %}>{{ task }}</li>
+            {% empty %}
+            <li class="empty">No tasks.</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
